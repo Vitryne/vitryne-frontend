@@ -1,147 +1,40 @@
-<div align="center">
-    <img src="https://raw.githubusercontent.com/Vitryne/.github/main/assets/logotipoGradiente.png" width="280" />
-    <h1>Portal web da plataforma Vitryne</h1>
-    <p>Catálogo, compras e acompanhamento de pedidos para consumidores — painel de gestão exclusivo para lojistas.</p>
-    <br>
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
-[![Web](https://skillicons.dev/icons?i=react,nextjs,ts,tailwind,docker)](https://skillicons.dev)
-</div>
+## Getting Started
 
----
-
-## Sobre
-
-O `vitryne-web` é a interface web da plataforma Vitryne. Serve dois públicos distintos com experiências separadas:
-
-- **Consumidor** — navegação no catálogo, busca por proximidade, carrinho, checkout, acompanhamento de pedidos e perfil.
-- **Lojista** — painel exclusivo de gestão de produtos, pedidos em tempo real (Kanban), histórico de vendas e dados financeiros.
-
-A interface consome a API REST do [`vitryne-backend`](https://github.com/Vitryne/vitryne-backend) e se comunica via WebSocket para atualizações em tempo real.
-
----
-
-## Stack
-
-| Camada | Tecnologia |
-|---|---|
-| Framework | Next.js 14+ (App Router) |
-| Linguagem | TypeScript |
-| Estilização | Tailwind CSS |
-| Requisições HTTP | Axios |
-| Tempo real | WebSocket (nativo) |
-| Containerização | Docker + Docker Compose |
-
----
-
-## Pré-requisitos
-
-- [Node.js 20+](https://nodejs.org/)
-- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
-- [Docker e Docker Compose](https://www.docker.com/) *(opcional)*
-- [`vitryne-backend`](https://github.com/Vitryne/vitryne-backend) rodando localmente ou em staging
-
----
-
-## Instalação
-
-### Com Docker *(recomendado)*
+First, run the development server:
 
 ```bash
-# Clone o repositório
-git clone https://github.com/Vitryne/vitryne-web.git
-cd vitryne-web
-
-# Suba o container
-docker-compose up --build
-```
-
-### Sem Docker
-
-```bash
-# Clone o repositório
-git clone https://github.com/Vitryne/vitryne-web.git
-cd vitryne-web
-
-# Instale as dependências
-npm install
-
-# Configure as variáveis de ambiente
-cp .env.example .env.local
-
-# Inicie o servidor de desenvolvimento
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-A aplicação estará disponível em `http://localhost:3000`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
----
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-## Variáveis de Ambiente
+[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-Crie um arquivo `.env.local` na raiz do projeto com base no `.env.example`:
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
 
-```env
-# URL base da API
-NEXT_PUBLIC_API_URL=http://localhost:8080/api/v1
+This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-# URL do WebSocket
-NEXT_PUBLIC_WS_URL=ws://localhost:8080/ws
+## Learn More
 
-# Gateway de pagamento (chave pública — segura para o cliente)
-NEXT_PUBLIC_PAYMENT_GATEWAY_KEY=sua_chave_publica
-```
+To learn more about Next.js, take a look at the following resources:
 
-> **Nunca versione o arquivo `.env.local` com credenciais reais.** O `.gitignore` já exclui este arquivo por padrão. Variáveis sem o prefixo `NEXT_PUBLIC_` ficam restritas ao servidor e nunca são expostas ao browser.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
 
----
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Estrutura do Projeto
+## Deploy on Vercel
 
-```
-src/
-├── app/                  # App Router do Next.js — rotas e layouts
-│   ├── (consumer)/       # Grupo de rotas do consumidor (catálogo, pedidos, perfil)
-│   ├── (store)/          # Grupo de rotas do lojista (painel, produtos, pedidos)
-│   └── layout.tsx        # Layout raiz da aplicação
-├── components/
-│   └── ui/               # Componentes reutilizáveis (botões, inputs, cards, modais)
-├── features/             # Módulos por funcionalidade
-│   ├── auth/             # Login, registro e recuperação de senha
-│   ├── catalog/          # Catálogo de produtos, busca e filtros
-│   ├── cart/             # Carrinho e checkout
-│   ├── orders/           # Pedidos, histórico e timeline de status
-│   ├── store/            # Painel do lojista — produtos, pedidos e financeiro
-│   └── profile/          # Perfil e configurações do usuário
-├── hooks/                # Custom hooks
-├── services/             # Instâncias Axios e chamadas à API
-├── types/                # Tipos e interfaces TypeScript globais
-├── utils/                # Funções utilitárias
-└── styles/               # Estilos globais e configuração do Tailwind
-```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
-
-## Perfis de Acesso
-
-A aplicação adapta a interface e as rotas disponíveis conforme o perfil autenticado:
-
-| Perfil | Acesso |
-|---|---|
-| `CONSUMER` | Catálogo, busca, carrinho, pedidos e perfil |
-| `STORE` | Painel de gestão, produtos, pedidos (Kanban) e financeiro |
-
-Rotas protegidas por perfil retornam redirect para login quando acessadas sem autenticação ou com perfil incorreto.
-
----
-
-## Scripts Disponíveis
-
-```bash
-npm run dev        # Servidor de desenvolvimento com hot reload
-npm run build      # Build de produção
-npm run start      # Inicia o servidor em modo produção
-npm run lint       # Verifica o código com ESLint
-npm run type-check # Verifica tipagem com tsc --noEmit
-```
-
----
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
