@@ -45,7 +45,7 @@ A aplicação consome as APIs disponibilizadas pelo backend e integra-se aos dem
 ```bash
 # Clone o repositório
 git clone https://github.com/Vitryne/frontend.git
-cd backend
+cd frontend
 
 # Crie o arquivo .env na raiz (veja a seção Variáveis de Ambiente)
 
