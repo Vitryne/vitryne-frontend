@@ -1,8 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Bai+Jamjuree:wght@400;600&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #9530D9;
+  --color-primary-hover: #631B97;
+  --color-primary-soft: #F7F0FB;
+  --color-text-primary: #15131C;
+  --color-text-secondary: #6C6779;
+  --color-screen: #FAFAF7;
+  --color-surface: #FFFFFF;
+  --color-border: #ECE9E3;
+  --color-success: #1F9D5B;
+  --color-warning: #D98A1F;
+  --color-danger: #D8345B;
+  --font-display: "Poppins", system-ui, sans-serif;
+  --font-body: "Bai Jamjuree", system-ui, sans-serif;
+}
 
 body {
-    font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
 }
