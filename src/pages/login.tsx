@@ -4,13 +4,18 @@ import Input from "@/components/input";
 import { FcGoogle } from "react-icons/fc";
 import { IoEyeOutline } from "react-icons/io5";
 import { HiOutlineMail } from "react-icons/hi";
-
+import Image from "next/image";
 
 const Login: React.FC = ({}) => {
   return (
     <div className="flex min-h-screen">
       <div className="hidden lg:block lg:w-[46%] relative">
-        <p>Imagem</p>
+        <Image
+          src="/partner_hero.jpg"
+          alt="Partner hero"
+          width={1200}
+          height={600}
+        />
       </div>
 
       <div className="w-full lg:w-[54%] min-h-screen bg-screen flex items-center justify-center px-6 lg:px-7">
@@ -22,13 +27,13 @@ const Login: React.FC = ({}) => {
             Acesse o painel da sua loja.
           </p>
 
-          <form className="space-y-4">            
+          <form className="space-y-4">
             <div>
               <Input
                 title="E-mail"
                 type="email"
                 placeholder="atelier@norte.com.br"
-                icon={<HiOutlineMail size={18}/>}
+                icon={<HiOutlineMail size={18} />}
               />
             </div>
 
@@ -37,7 +42,7 @@ const Login: React.FC = ({}) => {
                 title="Senha"
                 placeholder="digite sua senha..."
                 type="password"
-                icon={<IoEyeOutline size={18}/>}
+                icon={<IoEyeOutline size={18} />}
               />
             </div>
 
@@ -59,9 +64,7 @@ const Login: React.FC = ({}) => {
                 Problemas ao acessar?
               </a>
             </div>
-            <Button
-              title="Entrar no painel"
-            />
+            <Button title="Entrar no painel" />
           </form>
 
           {/* Divisor */}
@@ -74,7 +77,7 @@ const Login: React.FC = ({}) => {
           </div>
 
           <ButtonGoogle
-            icon={<FcGoogle size={20}/>}
+            icon={<FcGoogle size={20} />}
             title="Entrar com o Google"
           />
 
