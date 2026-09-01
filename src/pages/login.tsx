@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { IoEyeOutline } from "react-icons/io5";
 import { HiOutlineMail } from "react-icons/hi";
 import Image from "next/image";
+import Link from "next/link";
 
 const Login: React.FC = ({}) => {
   return (
@@ -67,7 +68,6 @@ const Login: React.FC = ({}) => {
             <Button title="Entrar no painel" />
           </form>
 
-          {/* Divisor */}
           <div className="flex items-center gap-4 my-6">
             <div className="h-px flex-1 bg-border" />
             <span className="font-body text-[13px] text-text-secondary">
@@ -83,9 +83,12 @@ const Login: React.FC = ({}) => {
 
           <p className="text-center font-body text-[13px] text-text-secondary mt-8">
             Ainda não vende na Vitryne?{" "}
-            <a href="#" className="text-primary font-semibold hover:underline">
+            <Link
+              href="/register"
+              className="text-primary font-semibold hover:underline"
+            >
               Cadastre sua loja
-            </a>
+            </Link>
           </p>
         </div>
       </div>
