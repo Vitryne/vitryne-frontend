@@ -6,17 +6,56 @@ import { IoEyeOutline } from "react-icons/io5";
 import { HiOutlineMail } from "react-icons/hi";
 import Image from "next/image";
 import Link from "next/link";
+import LogoSvg from "@/components/logo-svg";
 
 const Login: React.FC = ({}) => {
   return (
     <div className="flex min-h-screen">
-      <div className="hidden lg:block lg:w-[46%] relative">
+      <div className="hidden lg:block lg:w-[46%] relative overflow-hidden">
         <Image
           src="/partner_hero.jpg"
           alt="Partner hero"
-          width={1200}
-          height={600}
+          fill
+          priority
+          className="object-cover"
         />
+        <div className="absolute inset-0 bg-linear-to-br from-primary/90 via-primary/85 to-[#3B0F63]/90" />
+
+        <div className="relative z-10 flex h-full flex-col justify-between p-10 lg:p-12 text-white">
+          <div className="w-42.5">
+            <LogoSvg color="white" />
+          </div>
+          <div>
+            <span className="inline-block rounded-full border border-white/30 px-3 py-1 font-body text-[11px] font-semibold uppercase tracking-wider text-white/90">
+              Portal do parceiro
+            </span>
+            <h2 className="font-display font-bold text-[34px] leading-[1.15] mt-4">
+              Gerencie sua loja em um só lugar.
+            </h2>
+            <p className="font-body text-[15px] leading-relaxed text-white/80 mt-4 max-w-105">
+              Catálogo, pedidos em tempo real, financeiro e entrega — desenhado
+              para quem vive de moda.
+            </p>
+            <div className="flex items-center gap-8 mt-8">
+              <div>
+                <p className="font-display font-bold text-2xl">+12k</p>
+                <p className="font-body text-[13px] text-white/70">
+                  lojas ativas
+                </p>
+              </div>
+              <div>
+                <p className="font-display font-bold text-2xl">94%</p>
+                <p className="font-body text-[13px] text-white/70">aprovação</p>
+              </div>
+              <div>
+                <p className="font-display font-bold text-2xl">45min</p>
+                <p className="font-body text-[13px] text-white/70">
+                  entrega média
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="w-full lg:w-[54%] min-h-screen bg-screen flex items-center justify-center px-6 lg:px-7">
