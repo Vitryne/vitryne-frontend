@@ -1,9 +1,10 @@
+import SidebarRegister from "@/components/sidebar-register";
 
 
 const Register = () => {
     return(
         <div>
-            Tela de cadastro
+            <SidebarRegister/>
         </div>
     )
 }
